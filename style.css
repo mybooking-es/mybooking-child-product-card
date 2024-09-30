@@ -1,0 +1,195 @@
+/*
+Theme Name: 				    Mybooking child
+Theme URI: 					    [client_url]
+Template: 				      mybooking
+Author: 					      [author_name]
+Author URI: 				    [author_url]
+Description: 				    Tema basado en Mybooking Theme para [client_name]
+Tags: 						      e-commerce,blog
+Version:            		1.0.0
+Requires at least:  		5.2
+Tested up to:       		5.6.1
+Requires PHP:       		7.2
+License:            		GNU General Public License v2 or later
+License URI:        		https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain:        		[text_domain]
+Domain Path:        		/languages
+*/
+.customer_prefix_horizontal_card {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+.customer_prefix_horizontal_card_box {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: stretch;
+	flex-wrap: wrap;
+
+	background-color: white;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	padding: 1rem;
+}
+.customer_prefix_horizontal_card_box > div {
+	width: 100%;
+} @media (min-width: 601px) {
+	.customer_prefix_horizontal_card_box > div {
+			width: 33.33%;
+	}
+}
+
+/*
+* PARAMETERS
+*/
+/* Image */
+.customer_prefix_horizontal_card_imageBox {
+	position: relative;
+	text-align: center;
+}
+.customer_prefix_horizontal_card_imageBox > .mb-badge {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+.customer_prefix_horizontal_card_imageBox > img {
+	max-width: 100%;
+	z-index: 0;
+	position: relative;
+}
+
+/* Characteristics */
+/* Characteristics */
+.customer_prefix_horizontal_card_characteristics {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	flex-wrap: wrap;
+	line-height: 1;
+}
+.customer_prefix_horizontal_card_characteristics-item {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	flex-wrap: nowrap;
+}
+.customer_prefix_horizontal_card_characteristics-key {
+	font-size: 0.7rem;
+	white-space: nowrap;
+}
+.customer_prefix_horizontal_card_characteristics-item:not(:last-child)::after {
+	content: ' • ';
+	white-space: pre;
+}
+
+/* Descriptions */
+.customer_prefix_horizontal_card_descriptionsBox {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	gap: 0.5rem;
+}
+.customer_prefix_horizontal_card .mb-badge {
+	font-size: 0.7rem;
+	border-radius: 0rem;
+}
+.customer_prefix_horizontal_card_descriptionsBox-name {
+	font-size: 0.8rem;
+	color: #555555;
+	font-weight: bold;
+}
+.customer_prefix_horizontal_card_descriptionsBox-short_description {
+	font-size: 1.3rem;
+	font-weight: bold;
+	line-height: 1;
+}
+
+.customer_prefix_horizontal_card_descriptionsBox-description {
+  height: 100%;
+  display: block;
+  overflow: hidden;
+  position: relative;
+	padding: 0 1rem;
+}
+.customer_prefix_horizontal_card_descriptionsBox-description ul {
+	padding: 0;
+	margin: 0;
+	list-style-position: inside;
+}
+.customer_prefix_horizontal_card_descriptionsBox-description-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: inset 0px -20px 20px -10px #FFF; 
+  z-index: 2;
+}
+.customer_prefix_horizontal_card_descriptionsBox-description-btn {
+	cursor: pointer;
+}
+
+/* Price */
+.customer_prefix_horizontal_card_priceBox {
+	margin: -1rem -1rem -1rem 0;
+	background-color: var(--mb-background-color);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+}
+.customer_prefix_horizontal_card_descriptionsBox-price {
+	position: absolute;
+	top: 1.2rem;
+	right: 1.2rem;
+	text-align: right;
+}
+.customer_prefix_horizontal_card_descriptionsBox-unit_base_price {
+	font-size: 0.8rem;
+	line-height: 1;
+	font-weight: bold;
+}
+.customer_prefix_horizontal_card_descriptionsBox-price_units {
+	font-size: 1rem;
+	line-height: 1.5;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: var(--brand-primary);
+}
+.customer_prefix_horizontal_card_descriptionsBox-price_units u {
+	text-decoration: none;
+}
+.customer_prefix_horizontal_card_priceBox-price {
+	position: relative;
+	margin-top: 4rem;
+}
+.customer_prefix_horizontal_card_priceBox-original_price {
+	font-weight: bold;
+	text-decoration: line-through;
+}
+.customer_prefix_horizontal_card_priceBox-definitive_price {
+	font-size: 2rem;
+	font-weight: bold;
+	color: var(--brand-primary);
+}
+.customer_prefix_horizontal_card_priceBox-price_discount {
+	font-size: 0.8rem;
+	font-weight: bold;
+	color: var(--brand-primary);
+	position: absolute;
+	top: -1rem;
+	right: -1rem;
+}
+.customer_prefix_horizontal_card .btn-choose-product {
+	margin: 0.5rem 0;
+	background-color: var(--mb-background-color);
+	color: var( --brand-primary);
+}
+.customer_prefix_horizontal_card .btn-choose-product:hover {
+	background-color: var(--mb-background-color);
+	color: var( --brand-primary);
+	filter: brightness(0.9);
+}
