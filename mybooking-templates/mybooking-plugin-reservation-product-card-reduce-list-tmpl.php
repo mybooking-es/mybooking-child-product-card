@@ -36,18 +36,88 @@
 							<img src="<?php echo esc_url( plugin_dir_url(__DIR__).'/assets/images/default-image-product.png' ) ?>"  alt="<%= product.name %>" />
 						<% } %>
 
-						<!-- /// Product key_characteristics parameter -->
-						<% if (product.key_characteristics) { %>
-							<div class="customer_prefix_horizontal_card_characteristics">
-								<% for (characteristic in product.key_characteristics) { %>
-									<div class="customer_prefix_horizontal_card_characteristics-item">
-										<span class="customer_prefix_horizontal_card_characteristics-key">
-										<%=product.key_characteristics[characteristic]%>  <%= characteristic %>
-										</span>
-									</div>
-								<% } %>
-							</div>
-						<% } %>
+						<!-- /// Product key_characteristics parameters -->
+						<?php if ( array_key_exists('show_key_characteristics', $args) && ( $args['show_key_characteristics'] !== 'hide' ) ): ?>
+							<% if (product.key_characteristics) { %>
+								<div class="customer_prefix_horizontal_card_characteristics">
+									<% if (product.key_characteristics['doors'] && product.key_characteristics['doors'] !== '') { %>
+										<div class="customer_prefix_horizontal_card_characteristics-item">
+											<span class="customer_prefix_horizontal_card_characteristics-key">
+											<%=product.key_characteristics['doors']%>  <?php echo esc_html_x( 'Doors', 'mybooking-child-product-card', 'mybooking-wp-plugin') ?>
+											</span>
+										</div>
+									<% } %>
+									<% if (product.key_characteristics['seats'] && product.key_characteristics['seats'] !== '') { %>
+										<div class="customer_prefix_horizontal_card_characteristics-item">
+											<span class="customer_prefix_horizontal_card_characteristics-key">
+											<%=product.key_characteristics['seats']%>  <?php echo esc_html_x( 'Seats', 'mybooking-child-product-card', 'mybooking-wp-plugin') ?>
+											</span>
+										</div>
+									<% } %>
+									<% if (product.key_characteristics['suitcases'] && product.key_characteristics['suitcases'] !== '') { %>
+										<div class="customer_prefix_horizontal_card_characteristics-item">
+											<span class="customer_prefix_horizontal_card_characteristics-key">
+											<%=product.key_characteristics['suitcases']%>  <?php echo esc_html_x( 'Suitcases', 'mybooking-child-product-card', 'mybooking-wp-plugin') ?>
+											</span>
+										</div>
+									<% } %>
+									<% if (product.key_characteristics['fuel'] && product.key_characteristics['fuel'] !== '') { %>
+										<div class="customer_prefix_horizontal_card_characteristics-item">
+											<span class="customer_prefix_horizontal_card_characteristics-key">
+											<% if (product.key_characteristics['fuel'] === 'D') { %>
+												<?php echo esc_html_x( 'Diesel', 'mybooking-child-product-card', 'mybooking-wp-plugin') ?>  <?php echo esc_html_x( 'Fuel', 'mybooking-child-product-card', 'mybooking-wp-plugin') ?>
+											<% } else if (product.key_characteristics['fuel'] === 'E') { %>
+												<?php echo esc_html_x( 'Electric', 'mybooking-child-product-card', 'mybooking-wp-plugin') ?>  <?php echo esc_html_x( 'Fuel', 'mybooking-child-product-card', 'mybooking-wp-plugin') ?>
+											<% } else if (product.key_characteristics['fuel'] === 'H') { %>
+												<?php echo esc_html_x( 'Hybrid', 'mybooking-child-product-card', 'mybooking-wp-plugin') ?>  <?php echo esc_html_x( 'Fuel', 'mybooking-child-product-card', 'mybooking-wp-plugin') ?>
+											<% } else if (product.key_characteristics['fuel'] === 'G/D') { %>
+												<?php echo esc_html_x( 'Petrol / Diesel', 'mybooking-child-product-card', 'mybooking-wp-plugin') ?>  <?php echo esc_html_x( 'Fuel', 'mybooking-child-product-card', 'mybooking-wp-plugin') ?>
+											<% } else { %>
+												<?php echo esc_html_x( 'Petrol', 'mybooking-child-product-card', 'mybooking-wp-plugin') ?>  <?php echo esc_html_x( 'Fuel', 'mybooking-child-product-card', 'mybooking-wp-plugin') ?>
+											<% } %>
+											</span>
+										</div>
+									<% } %>
+									<% if (product.key_characteristics['transmission'] && product.key_characteristics['transmission'] !== '') { %>
+										<div class="customer_prefix_horizontal_card_characteristics-item">
+											<span class="customer_prefix_horizontal_card_characteristics-key">
+											<%=product.key_characteristics['transmission']%>  <?php echo esc_html_x( 'Transmission', 'mybooking-child-product-card', 'mybooking-wp-plugin') ?>
+											</span>
+										</div>
+									<% } %>
+									<% if (product.key_characteristics['air_conditioner'] && product.key_characteristics['air_conditioner'] === 'Yes') { %>
+										<div class="customer_prefix_horizontal_card_characteristics-item">
+											<span class="customer_prefix_horizontal_card_characteristics-key">
+												<?php echo esc_html_x( 'Air conditioner', 'mybooking-child-product-card', 'mybooking-wp-plugin') ?>
+											</span>
+										</div>
+									<% } %>
+
+									<!-- Dimensions characteristics -->
+									<% if (product.characteristic_length && product.characteristic_length != 0) { %>
+										<div class="customer_prefix_horizontal_card_characteristics-item">
+											<span class="customer_prefix_horizontal_card_characteristics-key">
+												<?php echo esc_html( MyBookingEngineContext::getInstance()->getLength() ) ?> <%=product.characteristic_length%> m.
+											</span>
+										</div>
+									<% } %>
+									<% if (product.characteristic_width && product.characteristic_width != 0) { %>
+										<div class="customer_prefix_horizontal_card_characteristics-item">
+											<span class="customer_prefix_horizontal_card_characteristics-key">
+												<?php echo esc_html( MyBookingEngineContext::getInstance()->getWidth() ) ?> <%=product.characteristic_width%> m.
+											</span>
+										</div>
+									<% } %>
+									<% if (product.characteristic_height && product.characteristic_height != 0) { %>
+										<div class="customer_prefix_horizontal_card_characteristics-item">
+											<span class="customer_prefix_horizontal_card_characteristics-key">
+												<?php echo esc_html( MyBookingEngineContext::getInstance()->getHeight() ) ?> <%=product.characteristic_height%> m.
+											</span>
+										</div>
+									<% } %>
+								</div>
+							<% } %>
+						<?php endif; ?>
 					</div>
 
 					<!-- // Product description box -->
